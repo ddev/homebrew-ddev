@@ -20,7 +20,7 @@ class Ddev < Formula
 
   def install
   	p "I am in the install for sure"
-  	tar zxf ddev-darwin.tar.gz
+  	system "tar", "zxf", "ddev-darwin.tar.gz"
     bin.install_symlink "ddev/darwin/ddev"
   end
 
