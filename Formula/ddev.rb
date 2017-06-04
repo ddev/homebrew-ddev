@@ -15,10 +15,11 @@ class Ddev < Formula
 
   depends_on "go" => :build
 
-
   bottle do
-    root_url "http://thefays.us/tmp"
-    sha256 "69ef77ef7b2f34ebcdc2207d71308742ab0b521d020eaf81d6d19e7645d2a252" => :sierra
+  	root_url thefays.us/tmp
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "116a8ebada06fa61da1181a1fed4b027e1cbd12ddc1c6b0fc339a39fe405be1f" => :sierra
   end
 
   def install
