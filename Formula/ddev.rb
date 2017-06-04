@@ -22,7 +22,7 @@ class Ddev < Formula
   end
 
   def install
-    system "tar", "-zxf", "*.tar.gz"
+    system "tar", "-zxf", "-C", #{prefix},
     bin.install "ddev"
   end
 
