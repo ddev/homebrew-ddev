@@ -1,7 +1,3 @@
-# Documentation: http://docs.brew.sh/Formula-Cookbook.html
-#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/latest/"
@@ -15,12 +11,12 @@ class Ddev < Formula
 
   depends_on "go" => :build
 
-  bottle do
-    root_url "http://thefays.us/tmp"
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "116a8ebada06fa61da1181a1fed4b027e1cbd12ddc1c6b0fc339a39fe405be1f" => :sierra
-  end
+  #bottle do
+    #root_url "http://thefays.us/tmp"
+    #cellar :any_skip_relocation
+    #rebuild 1
+    #sha256 "116a8ebada06fa61da1181a1fed4b027e1cbd12ddc1c6b0fc339a39fe405be1f" => :sierra
+  #end
 
   def install
   	p "I am in the install for sure"
