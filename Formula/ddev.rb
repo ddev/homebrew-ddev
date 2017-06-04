@@ -23,7 +23,7 @@ class Ddev < Formula
 
   def install
     # system "tar", "-zxf", "-C", #{prefix},
-    bin.install "ddev.brew"
+    bin.install "ddev"
   end
 
 
