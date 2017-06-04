@@ -5,7 +5,7 @@
 class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/latest/"
-  url "https://github.com/drud/ddev/releases/download/v0.5/ddev_darwin.tar.gz"
+  url "https://github.com/drud/ddev/archive/v0.5.tar.gz"
   sha256 "294657859ee099fb6284cb3ac2f43165c21bb72285c167fff8474d0d53ed89a9"
 
   # Dependencies don't currently seem to be useful since brew doesn't have edge and people likely will not have
@@ -17,11 +17,9 @@ class Ddev < Formula
 
 
   bottle do
-    root_url 'https://github.com/drud/ddev/releases/tag/v0.5'
-    cellar :any_skip_relocation
+    root_url 'http://thefays.us/tmp'
     sha256 "294657859ee099fb6284cb3ac2f43165c21bb72285c167fff8474d0d53ed89a9" => :sierra
   end
-
 
   def install do
     bin.install "ddev"
