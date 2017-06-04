@@ -15,7 +15,7 @@ class Ddev < Formula
 
 
   bottle do
-    root_url 'https://github.com/drud/ddev/releases/download/v0.5'
+    root_url 'https://github.com/drud/ddev/releases/tag/v0.5'
     cellar :any_skip_relocation
     sha256 "294657859ee099fb6284cb3ac2f43165c21bb72285c167fff8474d0d53ed89a9" => :sierra
   end
