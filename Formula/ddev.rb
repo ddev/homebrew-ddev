@@ -13,6 +13,8 @@ class Ddev < Formula
   # depends_on "docker" => :run
   # depends_on "docker-compose" => :run
 
+  depends_on "go" => :build
+
 
   bottle do
     root_url 'https://github.com/drud/ddev/releases/tag/v0.5'
@@ -20,6 +22,10 @@ class Ddev < Formula
     sha256 "294657859ee099fb6284cb3ac2f43165c21bb72285c167fff8474d0d53ed89a9" => :sierra
   end
 
+
+  def install do
+    bin.install "ddev"
+  def end
 
 
   test do
