@@ -6,7 +6,7 @@ class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/latest/"
   url "https://github.com/rfay/ddev/releases/download/v0.5/ddev-darwin.tar.gz"
-  sha256 "49c4d2c3fe7243cf9728e8f3f398c2d64ccac13159d82b2b9be82998a5847f2e"
+  sha256 "69ef77ef7b2f34ebcdc2207d71308742ab0b521d020eaf81d6d19e7645d2a252"
 
   # Dependencies don't currently seem to be useful since brew doesn't have edge and people likely will not have
   # used brew to install docker.
@@ -18,7 +18,7 @@ class Ddev < Formula
 
   bottle do
     root_url "http://thefays.us/tmp"
-    sha256 "49c4d2c3fe7243cf9728e8f3f398c2d64ccac13159d82b2b9be82998a5847f2e" => :sierra
+    sha256 "69ef77ef7b2f34ebcdc2207d71308742ab0b521d020eaf81d6d19e7645d2a252" => :sierra
   end
 
   def install
