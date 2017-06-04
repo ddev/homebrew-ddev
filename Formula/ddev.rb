@@ -22,6 +22,7 @@ class Ddev < Formula
   end
 
   def install
+  	p "I am in the install for sure"
     bin.install Dir["*"]
   end
 
