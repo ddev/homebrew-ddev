@@ -23,7 +23,7 @@ class Ddev < Formula
 
   def install
     # system "tar", "-zxf", "-C", #{prefix},
-    bin.install "ddev"
+    system "cp", "ddev", #{cellar}/ddev/darwin
   end
 
 
