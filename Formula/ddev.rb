@@ -20,7 +20,7 @@ class Ddev < Formula
 
   def install
   	p "I am in the install for sure"
-    bin.install_symlink ddev/darwin/ddev
+    bin.install_symlink "ddev/darwin/ddev"
   end
 
 
