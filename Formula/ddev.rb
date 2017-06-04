@@ -17,11 +17,12 @@ class Ddev < Formula
 
 
   bottle do
-    root_url 'http://thefays.us/tmp'
+    root_url "http://thefays.us/tmp"
     sha256 "294657859ee099fb6284cb3ac2f43165c21bb72285c167fff8474d0d53ed89a9" => :sierra
   end
 
   def install do
+    system "tar", "-zxf", "*.tar.gz"
     bin.install "ddev"
   def end
 
