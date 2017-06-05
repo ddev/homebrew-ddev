@@ -9,13 +9,10 @@ class Ddev < Formula
   # depends_on "docker" => :run
   # depends_on "docker-compose" => :run
 
-  depends_on "go" => :build
-
   def install
   	system "mkdir", "-p", "#{bin}"
   	system "cp", "ddev", "#{bin}/ddev"
   end
-
 
   test do
     system "#{bin}/ddev", "version"
