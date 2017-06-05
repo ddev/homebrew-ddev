@@ -19,12 +19,12 @@ class Ddev < Formula
   #end
 
   def install
-  	p "I am in the install for sure"
   	system "pwd"
   	system "ls", "-lR"
   	# system "tar", "zxf", "ddev-darwin.tar.gz"
   	system "mkdir", "-p", "#{bin}"
   	system "cp", "darwin/ddev", "#{bin}/ddev"
+  	bin.install_symlink "bin/ddev"
   end
 
 
