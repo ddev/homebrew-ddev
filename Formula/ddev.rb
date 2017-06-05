@@ -22,8 +22,8 @@ class Ddev < Formula
   	p "I am in the install for sure"
   	system "pwd"
   	system "ls", "-lR"
-  	system "tar", "zxf", "ddev-darwin.tar.gz"
-    bin.install_symlink "ddev/darwin/ddev"
+  	# system "tar", "zxf", "ddev-darwin.tar.gz"
+    bin.install_symlink "bin/ddev"
   end
 
 
