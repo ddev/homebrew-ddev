@@ -24,7 +24,7 @@ class Ddev < Formula
   	# system "tar", "zxf", "ddev-darwin.tar.gz"
   	system "mkdir", "-p", "#{bin}"
   	system "cp", "darwin/ddev", "#{bin}/ddev"
-  	bin.install_symlink "bin/ddev"
+  	# bin.install_symlink "bin/ddev"
   end
 
 
