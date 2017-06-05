@@ -23,6 +23,7 @@ class Ddev < Formula
   	system "pwd"
   	system "ls", "-lR"
   	# system "tar", "zxf", "ddev-darwin.tar.gz"
+  	system "mkdir", "-p", "#{bin}"
   	system "cp", "darwin/ddev", "#{bin}/ddev"
   end
 
