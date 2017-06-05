@@ -11,33 +11,13 @@ class Ddev < Formula
 
   depends_on "go" => :build
 
-  #bottle do
-    #root_url "http://thefays.us/tmp"
-    #cellar :any_skip_relocation
-    #rebuild 1
-    #sha256 "116a8ebada06fa61da1181a1fed4b027e1cbd12ddc1c6b0fc339a39fe405be1f" => :sierra
-  #end
-
   def install
-  	system "pwd"
-  	system "ls", "-lR"
-  	# system "tar", "zxf", "ddev-darwin.tar.gz"
   	system "mkdir", "-p", "#{bin}"
   	system "cp", "darwin/ddev", "#{bin}/ddev"
-  	# bin.install_symlink "bin/ddev"
   end
 
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! It's enough to just replace
-    # "false" with the main program this formula installs, but it'd be nice if you
-    # were more thorough. Run the test with `brew test ddev`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
     system "#{bin}/ddev", "version"
   end
 end
