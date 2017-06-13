@@ -1,8 +1,8 @@
 class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/latest/"
-  url "https://github.com/drud/ddev/releases/download/v0.6/ddev_osx.v0.6.tar.gz"
-  sha256 "93d6f0fbae170c845b2333c541c9a7f734b18225f6570a4a6757cf00930bf742"
+  url "https://github.com/drud/ddev/releases/download/v0.7/ddev_osx.v0.7.tar.gz"
+  sha256 "494a3a74e0c7dce5cee7ccfe66c9d95d278a0698a188355a525a314b12b866b8"
 
   # Dependencies don't currently seem to be useful since brew doesn't have edge and people likely will not have
   # used brew to install docker.
