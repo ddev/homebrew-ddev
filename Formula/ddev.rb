@@ -12,6 +12,7 @@ class Ddev < Formula
   def install
   	system "mkdir", "-p", "#{bin}"
   	system "cp", "ddev", "#{bin}/ddev"
+	bash_completion.install "ddev_bash_completion.sh" => "ddev"
   end
 
   test do
