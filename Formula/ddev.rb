@@ -10,9 +10,17 @@ class Ddev < Formula
   # depends_on "docker-compose" => :run
 
   def install
-  	system "mkdir", "-p", "#{bin}"
-  	system "cp", "ddev", "#{bin}/ddev"
-	bash_completion.install "ddev_bash_completion.sh" => "ddev"
+    system "mkdir", "-p", "#{bin}"
+    system "cp", "ddev", "#{bin}/ddev"
+    bash_completion.install "ddev_bash_completion.sh" => "ddev"
+  end
+
+  def caveats
+  <<~EOS
+ddev requires docker and docker-compose.
+You can install them with "brew cask install docker"
+or from the docker.com website.
+  EOS
   end
 
   test do
