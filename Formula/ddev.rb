@@ -10,7 +10,7 @@ class Ddev < Formula
   depends_on "go" => :build
 
   def install
-    system "make"
+    system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
     system "mkdir", "-p", "#{bin}"
     system "cp", "bin/darwin/darwin_amd64/ddev", "#{bin}/ddev"
     system "bin/darwin/darwin_amd64/ddev_gen_autocomplete"
@@ -29,9 +29,6 @@ or from the docker.com website.
   EOS
   end
 
-  test do
-    system "#{bin}/ddev", "version"
-  end
 end
 
 
