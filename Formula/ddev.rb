@@ -1,18 +1,24 @@
 class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/stable/"
-  url "https://github.com/drud/ddev/releases/download/v1.5.1/ddev_macos.v1.5.1.tar.gz"
-  sha256 "b21438b90697f947dfed8c462edc67738eea160443a2ba696e8d87ea8038c6ac"
+  url "https://github.com/drud/ddev/archive/v1.5.1.tar.gz"
+  sha256 "6df1e15bb44774665bee028ac5c9d11a8babb9646707afd71177566af68581fb"
 
-  # Dependencies don't currently seem to be useful since people likely will not have
-  # used brew to install docker.
   # depends_on "docker" => :run
   # depends_on "docker-compose" => :run
+  depends_on "docker" => :build
+  depends_on "go" => :build
 
   def install
+    system "make"
     system "mkdir", "-p", "#{bin}"
-    system "cp", "ddev", "#{bin}/ddev"
-    bash_completion.install "ddev_bash_completion.sh" => "ddev"
+    system "cp", "bin/darwin/darwin_amd64/ddev", "#{bin}/ddev"
+    system "bin/darwin/darwin_amd64/ddev_gen_autocomplete"
+    bash_completion.install "bin/ddev_bash_completion.sh" => "ddev"
+  end
+
+  test do
+    system "#{bin}/ddev", "version"
   end
 
   def caveats
