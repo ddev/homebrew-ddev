@@ -15,8 +15,8 @@ Updating:
 * Add the bottles into the formula per the output of `brew bottle`. 
 * Create the new version number on bintray.com (drud org, ddev project)
 * Push the new bottles; note that the name changes from high_sierra to el_capitan with the macOS version, and that the "--" changes to "-" inexplicably: 
-  `curl -T ddev--<version>.x86_64_linux.bottle.tar.gz -urfay:b5e3b1b50e3ef9255140f5fd444d1e4029ece4da https://api.bintray.com/content/drud/bottles-ddev/ddev/v<version>/ddev-<version>.x86_64_linux.bottle.tar.gz`
-  `curl -T ddev--1.5.1.high_sierra.bottle.tar.gz -urfay:b5e3b1b50e3ef9255140f5fd444d1e4029ece4da https://api.bintray.com/content/drud/bottles-ddev/ddev/v1.5.1/ddev-1.5.1.el_capitan.bottle.tar.gz`
+  `curl -T ddev--<version>.x86_64_linux.bottle.tar.gz -urfay:<token> https://api.bintray.com/content/drud/bottles-ddev/ddev/v<version>/ddev-<version>.x86_64_linux.bottle.tar.gz`
+  `curl -T ddev--1.5.1.high_sierra.bottle.tar.gz -urfay:<token> https://api.bintray.com/content/drud/bottles-ddev/ddev/v1.5.1/ddev-1.5.1.el_capitan.bottle.tar.gz`
 * Publish the files on bintray.com.
 * Create the PR for the new homebrew version.
 
