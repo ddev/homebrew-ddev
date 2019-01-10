@@ -12,8 +12,13 @@ class Ddev < Formula
   def install
     system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
     system "mkdir", "-p", "#{bin}"
-    system "cp", "bin/darwin/darwin_amd64/ddev", "#{bin}/ddev"
-    system "bin/darwin/darwin_amd64/ddev_gen_autocomplete"
+    if OS.mac?
+      system "cp", "bin/darwin/darwin_amd64/ddev", "#{bin}/ddev"
+      system "bin/darwin/darwin_amd64/ddev_gen_autocomplete"
+    else
+      system "cp", "bin/linux/ddev", "#{bin}/ddev"
+      system "bin/linux/ddev_gen_autocomplete"
+    end
     bash_completion.install "bin/ddev_bash_completion.sh" => "ddev"
   end
 
