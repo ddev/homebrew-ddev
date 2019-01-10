@@ -29,8 +29,7 @@ class Ddev < Formula
   def caveats
   <<~EOS
 ddev requires docker and docker-compose.
-You can install them with "brew cask install docker"
-or from the docker.com website.
+Docker installation instructions at https://ddev.readthedocs.io/en/latest/users/docker_installation/
   EOS
   end
 
