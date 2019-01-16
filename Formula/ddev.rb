@@ -12,8 +12,8 @@ class Ddev < Formula
   bottle do
     root_url "https://dl.bintray.com/drud/bottles-ddev"
     cellar :any_skip_relocation
-    sha256 "16316d98bcad17ba0b53f37bab2b134835f6a6d334ec1485e43cf620ae9a8cf5" => :x86_64_linux
-    sha256 "d1139d57fb8ea0f3c75563caf81ab091e5ba096008b107f1fa15465a067c51ce" => :el_capitan
+    sha256 "1ca62f7dfb8190f36349ebe83ef7e36849c4bb4ec4156b5a0cd63ef93173c11f" => :x86_64_linux
+    sha256 "6658216efaa45f2397a9a8d6313e5b526135c648754bcb6563eab898dbe151fa" => :el_capitan
   end
 
   def install
