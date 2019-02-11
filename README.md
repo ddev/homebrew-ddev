@@ -9,8 +9,10 @@ Updating:
 ```
    brew uninstall ddev
    cd homebrew-ddev  # directory with new source tarball/hash
+   brew install --build-from-source Formulas/ddev.rb
+   brew uninstall ddev
    brew install --build-bottle Formulas/ddev.rb`
-   brew bottle ddev
+   brew bottle --force-core-tap Formulas/ddev.rb
 ```
 * Add the bottles into the formula per the output of `brew bottle`. 
 * Create the new version number on bintray.com (drud org, ddev project)
