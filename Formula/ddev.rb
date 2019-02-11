@@ -1,8 +1,8 @@
 class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/stable/"
-  url "https://github.com/drud/ddev/archive/v1.5.2.tar.gz"
-  sha256 "88add1c437153df8a7160f71b988bfaa580261b6e6fa1b7cf28da4b9d647ce62"
+  url "https://github.com/drud/ddev/archive/v1.6.0.tar.gz"
+  sha256 "3eec12f97970e9a5326bb8e3943e12b2f03b049a1cd476ade4e3a8092da9dad4"
 
   # depends_on "docker" => :run
   # depends_on "docker-compose" => :run
@@ -10,10 +10,10 @@ class Ddev < Formula
   depends_on "go" => :build
 
   bottle do
-    root_url "https://dl.bintray.com/drud/bottles-ddev"
+    root_url "https://github.com/drud/ddev/releases/download/v1.6.0/"
     cellar :any_skip_relocation
-    sha256 "1ca62f7dfb8190f36349ebe83ef7e36849c4bb4ec4156b5a0cd63ef93173c11f" => :x86_64_linux
-    sha256 "6658216efaa45f2397a9a8d6313e5b526135c648754bcb6563eab898dbe151fa" => :el_capitan
+    sha256 "aefe3fbb7f57b018b55c6599edd48e34acc32ad07a10527d1020ca835e594bfe" => :x86_64_linux
+    sha256 "b290aab5ba273715b42e469b2c982b52b0f7375604959c0233cc1682bd34bd38" => :el_capitan
   end
 
   def install
