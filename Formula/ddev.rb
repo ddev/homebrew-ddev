@@ -4,13 +4,16 @@ class Ddev < Formula
   url "https://github.com/drud/ddev/archive/v1.7.0.tar.gz"
   sha256 "12ae503d324b88cc2d6452c8909b86e82cfe7401ddc5993cec64ec16d7a095ac"
 
+  # depends_on "docker" => :run
+  # depends_on "docker-compose" => :run
+  depends_on "docker" => :build
   depends_on "go" => :build
 
   bottle do
     root_url "https://github.com/drud/ddev/releases/download/v1.7.0/"
     cellar :any_skip_relocation
-    sha256 "74068e84c49fdd3a1e771295dbda1a53e2439911d51e1790f43dcf8892a10133" => :x86_64_linux
-    sha256 "a883ed510ee566bc765b91829d3b8f106886b093fa6e107a0ef086e0cd8de3c7" => :sierra
+    sha256 "ddb0b1f733c1d22c1567fd7ba6f6e92696976c49c13fb90dc4a6684bb1b85f36" => :x86_64_linux
+    sha256 "b2536dee295536867d0f25f4634a7604b040056d1341c86eaeed2eb1f699959d" => :sierra
   end
 
   def install
