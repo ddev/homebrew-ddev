@@ -1,8 +1,8 @@
 class Ddev < Formula
   desc "ddev: a local development environment management system"
   homepage "https://ddev.readthedocs.io/en/stable/"
-  url "https://github.com/drud/ddev/archive/v1.7.0.tar.gz"
-  sha256 "12ae503d324b88cc2d6452c8909b86e82cfe7401ddc5993cec64ec16d7a095ac"
+  url "https://github.com/drud/ddev/archive/v1.7.1.tar.gz"
+  sha256 "afc6f895e31590ff68f84e0522adddda41f1ada39f626ab17d5cdb5cbc7a195a"
 
   # depends_on "docker" => :run
   # depends_on "docker-compose" => :run
@@ -10,10 +10,10 @@ class Ddev < Formula
   depends_on "go" => :build
 
   bottle do
-    root_url "https://github.com/drud/ddev/releases/download/v1.7.0/"
+    root_url "https://github.com/drud/ddev/releases/download/v1.7.1/"
     cellar :any_skip_relocation
-    sha256 "030743d185409164611b4bbf872a3a39eed4865542060e8b2626c21075fcc94c" => :x86_64_linux
-    sha256 "b2536dee295536867d0f25f4634a7604b040056d1341c86eaeed2eb1f699959d" => :sierra
+    sha256 "b4c639ebb5737c2991bd9f0855563adf58c4dd4249a8bf9aa2ced617ecf3bb8e" => :x86_64_linux
+    sha256 "6480d036b1d78f273da261d631d52384b403aa03d696174396aa177d0bd4cba7" => :sierra
   end
 
   def install
