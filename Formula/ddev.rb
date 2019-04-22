@@ -20,7 +20,6 @@ class Ddev < Formula
   def install
     system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
     system "mkdir", "-p", "#{bin}"
-    system "mkcert", "-install"
     if OS.mac?
       system "cp", ".gotmp/bin/darwin_amd64/ddev", "#{bin}/ddev"
       system ".gotmp/bin/darwin_amd64/ddev_gen_autocomplete"
@@ -37,6 +36,8 @@ class Ddev < Formula
 
   def caveats
   <<~EOS
+PLEASE MAKE SURE to do `mkcert -install`, which may require your sudo password.
+
 ddev requires docker and docker-compose.
 Docker installation instructions at https://ddev.readthedocs.io/en/stable/users/docker_installation/
   EOS
