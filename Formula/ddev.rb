@@ -8,6 +8,7 @@ class Ddev < Formula
   # depends_on "docker-compose" => :run
   depends_on "docker" => :build
   depends_on "go" => :build
+  depends_on "mkcert" => :run
 
   bottle do
     root_url "https://github.com/drud/ddev/releases/download/v1.7.1/"
@@ -19,6 +20,7 @@ class Ddev < Formula
   def install
     system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
     system "mkdir", "-p", "#{bin}"
+    system "mkcert", "-install"
     if OS.mac?
       system "cp", ".gotmp/bin/darwin_amd64/ddev", "#{bin}/ddev"
       system ".gotmp/bin/darwin_amd64/ddev_gen_autocomplete"
@@ -36,7 +38,7 @@ class Ddev < Formula
   def caveats
   <<~EOS
 ddev requires docker and docker-compose.
-Docker installation instructions at https://ddev.readthedocs.io/en/latest/users/docker_installation/
+Docker installation instructions at https://ddev.readthedocs.io/en/stable/users/docker_installation/
   EOS
   end
 
