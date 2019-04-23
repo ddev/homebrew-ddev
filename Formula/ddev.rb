@@ -9,6 +9,7 @@ class Ddev < Formula
   depends_on "docker" => :build
   depends_on "go" => :build
   depends_on "mkcert" => :run
+  depends_on "nss" => :run
 
   bottle do
     root_url "https://github.com/drud/ddev/releases/download/v1.7.1/"
