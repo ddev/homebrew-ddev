@@ -8,6 +8,8 @@ class Ddev < Formula
   # depends_on "docker-compose" => :run
   depends_on "docker" => :build
   depends_on "go" => :build
+  depends_on "mkcert" => :run
+  depends_on "nss" => :run
 
   bottle do
     root_url "https://github.com/drud/ddev/releases/download/v1.7.1/"
@@ -35,8 +37,10 @@ class Ddev < Formula
 
   def caveats
   <<~EOS
+PLEASE MAKE SURE to do `mkcert -install`, which may require your sudo password.
+
 ddev requires docker and docker-compose.
-Docker installation instructions at https://ddev.readthedocs.io/en/latest/users/docker_installation/
+Docker installation instructions at https://ddev.readthedocs.io/en/stable/users/docker_installation/
   EOS
   end
 
