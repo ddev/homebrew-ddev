@@ -1,11 +1,16 @@
 class Ddev < Formula
-  desc "Local development environment management system"
+  desc "Local web development system"
   homepage "https://ddev.readthedocs.io/en/stable/"
   url "https://github.com/drud/ddev/archive/v1.18.2.tar.gz"
   sha256 "ecb60fe840eee12bb9ba1dfe5310eb9770d0c38fca3abf01c71cfe6edbfad92c"
+  license "apache-2.0"
+
+  head "https://github.com/drud/ddev.git", branch: "master"
 
   depends_on "mkcert" => :run
   depends_on "nss" => :run
+  depends_on "go" => :build
+  depends_on "make" => :build
 
   bottle do
     root_url "https://github.com/drud/ddev/releases/download/v1.18.2/"
@@ -17,11 +22,17 @@ class Ddev < Formula
     system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
     system "mkdir", "-p", "#{bin}"
     if OS.mac?
-      system "cp", ".gotmp/bin/darwin_amd64/ddev", "#{bin}/ddev"
-      system ".gotmp/bin/darwin_amd64/ddev_gen_autocomplete"
-    else
-      system "cp", ".gotmp/bin/ddev", "#{bin}/ddev"
-      system ".gotmp/bin/ddev_gen_autocomplete"
+        if Hardware::CPU.arm?
+            system "cp", ".gotmp/bin/darwin_arm64/ddev", "#{bin}/ddev"
+            system ".gotmp/bin/darwin_arm64/ddev_gen_autocomplete"
+        else
+            system "cp", ".gotmp/bin/darwin_amd64/ddev", "#{bin}/ddev"
+            system ".gotmp/bin/darwin_amd64/ddev_gen_autocomplete"
+        end
+    end
+    if OS.linux?
+      system "cp", ".gotmp/bin/linux_amd64/ddev", "#{bin}/ddev"
+      system ".gotmp/bin/linux_amd64/ddev_gen_autocomplete"
     end
     bash_completion.install ".gotmp/bin/ddev_bash_completion.sh" => "ddev"
     zsh_completion.install ".gotmp/bin/ddev_zsh_completion.sh" => "ddev"
@@ -32,8 +43,8 @@ class Ddev < Formula
     <<~EOS
             Make sure to do a 'mkcert -install' if you haven't done it before, it may require your sudo password.
       #{"      "}
-            ddev requires docker and docker-compose.
-            Docker installation instructions at https://ddev.readthedocs.io/en/stable/users/docker_installation/
+            ddev requires docker or colima.
+            See https://ddev.readthedocs.io/en/latest/users/docker_installation/
     EOS
   end
 
