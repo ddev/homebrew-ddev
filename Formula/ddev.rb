@@ -17,25 +17,86 @@ class Ddev < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "4c7457930eae49b8af42c7714a9b6017d8606f972a9165d8cb118d6c087e2d8c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "475dec25d4fbde8e8d4659cd436a18112b843f60553ab9cb9534e1a496017975"
   end
-  def install
-    system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
-    system "mkdir", "-p", "#{bin}"
-    if OS.mac?
-        if Hardware::CPU.arm?
-            system "cp", ".gotmp/bin/darwin_arm64/ddev", "#{bin}/ddev"
-            system ".gotmp/bin/darwin_arm64/ddev_gen_autocomplete"
+  on_macos do
+    if Hardware::CPU.intel?
+#       url "https://github.com/rfay/ddev/releases/download/v1.19.4-aj2/ddev_macos-amd64.v1.19.4-aj2.tar.gz"
+#       sha256 "fa7dfa5bd942d9629ad8df6c07cb5e2f4b337fac1b27dbbbf71596c1f9aa1922"
+
+      def install
+        if build.head?
+            os = OS.mac? ? "darwin" : "linux"
+            arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+            system "mkdir", "-p", "#{bin}"
+            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
         else
-            system "cp", ".gotmp/bin/darwin_amd64/ddev", "#{bin}/ddev"
-            system ".gotmp/bin/darwin_amd64/ddev_gen_autocomplete"
+            bin.install "ddev"
+            bash_completion.install "ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev"
         end
+      end
     end
-    if OS.linux?
-      system "cp", ".gotmp/bin/linux_amd64/ddev", "#{bin}/ddev"
-      system ".gotmp/bin/linux_amd64/ddev_gen_autocomplete"
+    if Hardware::CPU.arm?
+#       url "https://github.com/rfay/ddev/releases/download/v1.19.4-aj2/ddev_macos-arm64.v1.19.4-aj2.tar.gz"
+#       sha256 "5351238d036fb6c4e2d9f59b75d5a9efbdf0c51a6e6dfa328a85e81c9b0ff087"
+
+      def install
+        if build.head?
+            os = OS.mac? ? "darwin" : "linux"
+            arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+            system "mkdir", "-p", "#{bin}"
+            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
+        else
+            bin.install "ddev"
+            bash_completion.install "ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+        end
+      end
     end
-    bash_completion.install ".gotmp/bin/ddev_bash_completion.sh" => "ddev"
-    zsh_completion.install ".gotmp/bin/ddev_zsh_completion.sh" => "ddev"
-    fish_completion.install ".gotmp/bin/ddev_fish_completion.sh" => "ddev"
+  end
+
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+#       url "https://github.com/rfay/ddev/releases/download/v1.19.4-aj2/ddev_linux-arm64.v1.19.4-aj2.tar.gz"
+#       sha256 "ab40424b854f128537a2d497f955131c4a704539ac0398da4a35082a8cf690ef"
+
+      def install
+        if build.head?
+            os = OS.mac? ? "darwin" : "linux"
+            arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+            system "mkdir", "-p", "#{bin}"
+            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
+        else
+            bin.install "ddev"
+            bash_completion.install "ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+        end
+      end
+    end
+    if Hardware::CPU.intel?
+#       url "https://github.com/rfay/ddev/releases/download/v1.19.4-aj2/ddev_linux-amd64.v1.19.4-aj2.tar.gz"
+#       sha256 "76076e272e1fa48415eff7a36259cf5d9f7d49d693980dc4ccadb9e186586404"
+
+      def install
+        if build.head?
+            os = OS.mac? ? "darwin" : "linux"
+            arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+            system "mkdir", "-p", "#{bin}"
+            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
+        else
+            bin.install "ddev"
+            bash_completion.install "ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+        end
+      end
+    end
   end
 
   def caveats
