@@ -5,13 +5,13 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/drud/ddev"
-  version "1.19.4"
+  version "1.19.5"
   license "Apache 2"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.19.4/ddev_macos-amd64.v1.19.4.tar.gz"
-      sha256 "57d812316b61d096f69396dc65621a0c9d980f7646a793d24f1b0c52e2cd0857"
+    if Hardware::CPU.arm?
+      url "https://github.com/drud/ddev/releases/download/v1.19.5/ddev_macos-arm64.v1.19.5.tar.gz"
+      sha256 "d58007631ba7eefcd22dd7f4ec242813439fecf40e9193294e25c55b506db938"
 
       def install
         if build.head?
@@ -28,9 +28,9 @@ class Ddev < Formula
         end
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/drud/ddev/releases/download/v1.19.4/ddev_macos-arm64.v1.19.4.tar.gz"
-      sha256 "cf11ad950d145e5fde966ed13ca1ef717703a9ed8b7298674673d35f5c46bb64"
+    if Hardware::CPU.intel?
+      url "https://github.com/drud/ddev/releases/download/v1.19.5/ddev_macos-amd64.v1.19.5.tar.gz"
+      sha256 "ea00bd3e7cde3f84916238a1d7bf07992d0c3f526fe18065a2076b50c5ea08c7"
 
       def install
         if build.head?
@@ -51,8 +51,8 @@ class Ddev < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drud/ddev/releases/download/v1.19.4/ddev_linux-arm64.v1.19.4.tar.gz"
-      sha256 "24ebdac1956c8bf3ccc02fd9382a175a33dc221ead0c8613919cb4ce13860147"
+      url "https://github.com/drud/ddev/releases/download/v1.19.5/ddev_linux-arm64.v1.19.5.tar.gz"
+      sha256 "fa2399e2031f1c7f3698e1eb71c3256c685c8dba61475dc574ccd79f12173a76"
 
       def install
         if build.head?
@@ -70,8 +70,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.19.4/ddev_linux-amd64.v1.19.4.tar.gz"
-      sha256 "38b9c703bb5fe1e441de41d32e112d0e27c78c28d9af623903911a0a54d6d0e1"
+      url "https://github.com/drud/ddev/releases/download/v1.19.5/ddev_linux-amd64.v1.19.5.tar.gz"
+      sha256 "287547c7b2f7ae02c32a6bef23c2623cc12da061f67c2bb2434368f3faa5b2f5"
 
       def install
         if build.head?
