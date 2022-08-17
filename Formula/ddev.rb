@@ -5,13 +5,13 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/drud/ddev"
-  version "1.20.0"
+  version "1.21.1"
   license "Apache 2"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.20.0/ddev_macos-amd64.v1.20.0.tar.gz"
-      sha256 "07dde82ca72acbea2710d4ab44f4fd3a1359e12efad69fc13d0c078500b056ec"
+      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_macos-amd64.v1.21.1.tar.gz"
+      sha256 "954984cfddbdec18af5dc5c49362d003b66691446fd31d5f420e1276ddd7850f"
 
       def install
         if build.head?
@@ -29,8 +29,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/drud/ddev/releases/download/v1.20.0/ddev_macos-arm64.v1.20.0.tar.gz"
-      sha256 "da2f913fc4b9aa6491cc7633a9c35e2711d6b8f505acadf7171b1cde8dbcce18"
+      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_macos-arm64.v1.21.1.tar.gz"
+      sha256 "bd20e5945d5d0cc5e5b0538d6831e821f637fc8c4ba47e960042951403317db2"
 
       def install
         if build.head?
@@ -51,8 +51,8 @@ class Ddev < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drud/ddev/releases/download/v1.20.0/ddev_linux-arm64.v1.20.0.tar.gz"
-      sha256 "966cfb4526881e34d211117516061ce9e0b1581bdae80f4add50757287ec6512"
+      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_linux-arm64.v1.21.1.tar.gz"
+      sha256 "692fa720a7d8cd9f7b6ae1f039e19576eafd6d01974994c13bcf5370dcfda4f7"
 
       def install
         if build.head?
@@ -70,8 +70,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.20.0/ddev_linux-amd64.v1.20.0.tar.gz"
-      sha256 "accf8e859ab57dd69a0593faa7f38b12404c66dd18f9c9621a7513b3e72d080b"
+      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_linux-amd64.v1.21.1.tar.gz"
+      sha256 "296c224efc7ba7d991f3ccf3790fe819d0b883c6e8794065c88fd997ba526ea8"
 
       def install
         if build.head?
