@@ -5,13 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/drud/ddev"
-  version "1.21.1"
+  version "1.21.2"
   license "Apache 2"
 
+  depends_on "mkcert"
+
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_macos-amd64.v1.21.1.tar.gz"
-      sha256 "954984cfddbdec18af5dc5c49362d003b66691446fd31d5f420e1276ddd7850f"
+    if Hardware::CPU.arm?
+      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_macos-arm64.v1.21.2.tar.gz"
+      sha256 "409ff58de29b8bfbc8b0e645d686584f5491508536421b80e78012bcfee5df5d"
 
       def install
         if build.head?
@@ -28,9 +30,9 @@ class Ddev < Formula
         end
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_macos-arm64.v1.21.1.tar.gz"
-      sha256 "bd20e5945d5d0cc5e5b0538d6831e821f637fc8c4ba47e960042951403317db2"
+    if Hardware::CPU.intel?
+      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_macos-amd64.v1.21.2.tar.gz"
+      sha256 "847c266e2e34548f0348abb2da1f5464c242c7e95285424d3ec46b3acb98937d"
 
       def install
         if build.head?
@@ -51,8 +53,8 @@ class Ddev < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_linux-arm64.v1.21.1.tar.gz"
-      sha256 "692fa720a7d8cd9f7b6ae1f039e19576eafd6d01974994c13bcf5370dcfda4f7"
+      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_linux-arm64.v1.21.2.tar.gz"
+      sha256 "b7f7c4e2b11e830c2ab6162c4ee61ec8b3759886f9d7ff4fd6c40611f58c276b"
 
       def install
         if build.head?
@@ -70,8 +72,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.21.1/ddev_linux-amd64.v1.21.1.tar.gz"
-      sha256 "296c224efc7ba7d991f3ccf3790fe819d0b883c6e8794065c88fd997ba526ea8"
+      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_linux-amd64.v1.21.2.tar.gz"
+      sha256 "349b8b32040782efdaf595385a2e9f84ba743819bedebcc06b0fbf004c287a5f"
 
       def install
         if build.head?
@@ -93,8 +95,6 @@ class Ddev < Formula
   head "https://github.com/drud/ddev.git", branch: "master"
   depends_on "go" => :build
   depends_on "make" => :build
-
-  depends_on "mkcert"
 
   test do
     system "#{bin}/ddev --version"
