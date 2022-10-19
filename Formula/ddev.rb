@@ -5,15 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/drud/ddev"
-  version "1.21.2"
+  version "1.21.3"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_macos-arm64.v1.21.2.tar.gz"
-      sha256 "409ff58de29b8bfbc8b0e645d686584f5491508536421b80e78012bcfee5df5d"
+      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_macos-arm64.v1.21.3.tar.gz"
+      sha256 "a2d101e204648343bae2141fba5436abc542ac1fc05c2f046716a0b19381d274"
 
       def install
         if build.head?
@@ -31,8 +31,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_macos-amd64.v1.21.2.tar.gz"
-      sha256 "847c266e2e34548f0348abb2da1f5464c242c7e95285424d3ec46b3acb98937d"
+      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_macos-amd64.v1.21.3.tar.gz"
+      sha256 "8275d14b07d332bfeca243c8d124c528bfd931b6ee8460d0b5c84340085b7c0f"
 
       def install
         if build.head?
@@ -52,9 +52,9 @@ class Ddev < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_linux-arm64.v1.21.2.tar.gz"
-      sha256 "b7f7c4e2b11e830c2ab6162c4ee61ec8b3759886f9d7ff4fd6c40611f58c276b"
+    if Hardware::CPU.intel?
+      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_linux-amd64.v1.21.3.tar.gz"
+      sha256 "a7582e7269d4b0ae06932bf1c0bac756ad8f97b7392fb425c151cfd77848aea8"
 
       def install
         if build.head?
@@ -71,9 +71,9 @@ class Ddev < Formula
         end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.21.2/ddev_linux-amd64.v1.21.2.tar.gz"
-      sha256 "349b8b32040782efdaf595385a2e9f84ba743819bedebcc06b0fbf004c287a5f"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_linux-arm64.v1.21.3.tar.gz"
+      sha256 "9cbf751a2d9765a2cebfbd19e55cd1fdadd4e9a64e79ac6215a0269bd4dbc261"
 
       def install
         if build.head?
