@@ -5,15 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/drud/ddev"
-  version "1.21.3"
+  version "1.21.4"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_macos-arm64.v1.21.3.tar.gz"
-      sha256 "a2d101e204648343bae2141fba5436abc542ac1fc05c2f046716a0b19381d274"
+    if Hardware::CPU.intel?
+      url "https://github.com/drud/ddev/releases/download/v1.21.4/ddev_macos-amd64.v1.21.4.tar.gz"
+      sha256 "ad66aa228f056bf0c03e9517e94e60672f1e4b5a6989ad047c771f0f5364541f"
 
       def install
         if build.head?
@@ -30,9 +30,9 @@ class Ddev < Formula
         end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_macos-amd64.v1.21.3.tar.gz"
-      sha256 "8275d14b07d332bfeca243c8d124c528bfd931b6ee8460d0b5c84340085b7c0f"
+    if Hardware::CPU.arm?
+      url "https://github.com/drud/ddev/releases/download/v1.21.4/ddev_macos-arm64.v1.21.4.tar.gz"
+      sha256 "96744af621674cf8099f6a44e3db0f8bd1116c9ee29c2c13fca0dad4532cf337"
 
       def install
         if build.head?
@@ -52,9 +52,9 @@ class Ddev < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_linux-amd64.v1.21.3.tar.gz"
-      sha256 "a7582e7269d4b0ae06932bf1c0bac756ad8f97b7392fb425c151cfd77848aea8"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/drud/ddev/releases/download/v1.21.4/ddev_linux-arm64.v1.21.4.tar.gz"
+      sha256 "a22642fe667671d82ab88d326fb6b71b1ff6598392acc5cbcae353b262d8e2dc"
 
       def install
         if build.head?
@@ -71,9 +71,9 @@ class Ddev < Formula
         end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drud/ddev/releases/download/v1.21.3/ddev_linux-arm64.v1.21.3.tar.gz"
-      sha256 "9cbf751a2d9765a2cebfbd19e55cd1fdadd4e9a64e79ac6215a0269bd4dbc261"
+    if Hardware::CPU.intel?
+      url "https://github.com/drud/ddev/releases/download/v1.21.4/ddev_linux-amd64.v1.21.4.tar.gz"
+      sha256 "ad092af44560083f2aa39e8cd3795ffbf61e2eafcb4e9c06314e92f9c3314e2c"
 
       def install
         if build.head?
