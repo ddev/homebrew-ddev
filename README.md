@@ -1,8 +1,10 @@
-# drud/ddev Homebrew and Linuxbrew Formulas
+# ddev/ddev Homebrew Formula
 
 This formula can build the ddev package from source or pull from bottles.
 
-Updating:
+This repo is automatically updated by goreleaser in github.com/ddev/ddev. It does not need to be manually fixed.
+
+Updating (manual, obsolete):
 
 * Add the url and sha256 of the new release source-code tarball to the homebrew-ddev local version.
 * Create new bottles on linux and macOS (before pushing new formula:
