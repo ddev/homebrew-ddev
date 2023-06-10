@@ -26,7 +26,7 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
@@ -45,7 +45,7 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
@@ -67,7 +67,7 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
@@ -86,7 +86,7 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
