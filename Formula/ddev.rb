@@ -5,15 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/ddev/ddev"
-  version "1.21.6"
+  version "1.22.0"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/ddev/ddev/releases/download/v1.21.6/ddev_macos-arm64.v1.21.6.tar.gz"
-      sha256 "9d0030365b0f36edc5501353adb55982e89b3b7c2cf0e48216fc4ccc1f811942"
+    if Hardware::CPU.intel?
+      url "https://github.com/ddev/ddev/releases/download/v1.22.0/ddev_macos-amd64.v1.22.0.tar.gz"
+      sha256 "c62807399e309cf4791ec2264807fe25ec9835824e32fe6be7d4786bf3cc4082"
 
       def install
         if build.head?
@@ -26,13 +26,13 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ddev/ddev/releases/download/v1.21.6/ddev_macos-amd64.v1.21.6.tar.gz"
-      sha256 "3daff3f5ef00b58fbd499ac428f9cf2a4ac4883dc1ace09ad7ba410814912325"
+    if Hardware::CPU.arm?
+      url "https://github.com/ddev/ddev/releases/download/v1.22.0/ddev_macos-arm64.v1.22.0.tar.gz"
+      sha256 "fc9b7ac6a8ac3dd9519b42087dd294c82c7ebf2edcdf4624e763ede7520e736b"
 
       def install
         if build.head?
@@ -45,16 +45,16 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ddev/ddev/releases/download/v1.21.6/ddev_linux-arm64.v1.21.6.tar.gz"
-      sha256 "19752ad3057c4ba0a632100a143de5087d19be83d0db650ce8614454ea623378"
+    if Hardware::CPU.intel?
+      url "https://github.com/ddev/ddev/releases/download/v1.22.0/ddev_linux-amd64.v1.22.0.tar.gz"
+      sha256 "536752fb7329a042bf3ebc01727fc48c9758882b832d4132ee50c039249eb2db"
 
       def install
         if build.head?
@@ -67,13 +67,13 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ddev/ddev/releases/download/v1.21.6/ddev_linux-amd64.v1.21.6.tar.gz"
-      sha256 "ab5c25159c2bfa2b28305dc8502f538137074e5477cd09ba9d824402283f1213"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ddev/ddev/releases/download/v1.22.0/ddev_linux-arm64.v1.22.0.tar.gz"
+      sha256 "44272236d87c030c6d6aeebf2ecc9de949ba2bec35f6861c05ff6e191cbc4945"
 
       def install
         if build.head?
@@ -86,7 +86,7 @@ class Ddev < Formula
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
             zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
-            fish_completion.install "ddev_fish_completion.sh" => "ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
