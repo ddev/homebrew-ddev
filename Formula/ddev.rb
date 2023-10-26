@@ -5,22 +5,22 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/ddev/ddev"
-  version "1.22.3"
+  version "1.22.4"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ddev/ddev/releases/download/v1.22.3/ddev_macos-amd64.v1.22.3.tar.gz"
-      sha256 "3adf6e6125c595f0a5b5242640c353e31c325cb98386fbb345048661f53c3bf0"
+      url "https://github.com/ddev/ddev/releases/download/v1.22.4/ddev_macos-amd64.v1.22.4.tar.gz"
+      sha256 "5d6d911a4f4236433f6bc38a89a89d8f738c3c96ded5ccb6418863bc5841ed59"
 
       def install
         if build.head?
             os = OS.mac? ? "darwin" : "linux"
             arch = Hardware::CPU.arm? ? "arm64" : "amd64"
             system "mkdir", "-p", "#{bin}"
-            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "make"
             system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
         else
             bin.install "ddev"
@@ -31,15 +31,15 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ddev/ddev/releases/download/v1.22.3/ddev_macos-arm64.v1.22.3.tar.gz"
-      sha256 "b2a378186a27c44109d4c030610b1d1cd25ebdc70703823b4ae4a410b9d8811c"
+      url "https://github.com/ddev/ddev/releases/download/v1.22.4/ddev_macos-arm64.v1.22.4.tar.gz"
+      sha256 "8e001447933c3d6c466b2d89dabba0189b462cfc84c215693949d02172d7dcfc"
 
       def install
         if build.head?
             os = OS.mac? ? "darwin" : "linux"
             arch = Hardware::CPU.arm? ? "arm64" : "amd64"
             system "mkdir", "-p", "#{bin}"
-            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "make"
             system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
         else
             bin.install "ddev"
@@ -52,16 +52,16 @@ class Ddev < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/ddev/ddev/releases/download/v1.22.3/ddev_linux-amd64.v1.22.3.tar.gz"
-      sha256 "6429fe8340b7d5ef9ec04ebb5ebe9d359438c0da3539303a43d6f3fd734267d2"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ddev/ddev/releases/download/v1.22.4/ddev_linux-arm64.v1.22.4.tar.gz"
+      sha256 "151c3aef8b4043f44464248143bb4f160a9614deda04fe116089c6875fb3840b"
 
       def install
         if build.head?
             os = OS.mac? ? "darwin" : "linux"
             arch = Hardware::CPU.arm? ? "arm64" : "amd64"
             system "mkdir", "-p", "#{bin}"
-            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "make"
             system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
         else
             bin.install "ddev"
@@ -71,16 +71,16 @@ class Ddev < Formula
         end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ddev/ddev/releases/download/v1.22.3/ddev_linux-arm64.v1.22.3.tar.gz"
-      sha256 "58063a755e913cdf0634b90278f9e976802e0b441b7c7bb6316728db2bb68a52"
+    if Hardware::CPU.intel?
+      url "https://github.com/ddev/ddev/releases/download/v1.22.4/ddev_linux-amd64.v1.22.4.tar.gz"
+      sha256 "8daebf3e647eac247441c4a40a313b227fce544b9810b1ff188a7208b0f474a6"
 
       def install
         if build.head?
             os = OS.mac? ? "darwin" : "linux"
             arch = Hardware::CPU.arm? ? "arm64" : "amd64"
             system "mkdir", "-p", "#{bin}"
-            system "make", "VERSION=v#{version}", "COMMIT=v#{version}"
+            system "make"
             system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
         else
             bin.install "ddev"
