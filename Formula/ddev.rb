@@ -70,12 +70,12 @@ class Ddev < Formula
             system "make", "build", "completions"
             system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
             bash_completion.install ".gotmp/bin/completions/ddev_bash_completion.sh" => "ddev"
-            zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "ddev"
+            zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "_ddev"
             fish_completion.install ".gotmp/bin/completions/ddev_fish_completion.sh" => "ddev.fish"
         else
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
-            zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "_ddev"
             fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
@@ -92,12 +92,12 @@ class Ddev < Formula
             system "make", "build", "completions"
             system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
             bash_completion.install ".gotmp/bin/completions/ddev_bash_completion.sh" => "ddev"
-            zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "ddev"
+            zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "_ddev"
             fish_completion.install ".gotmp/bin/completions/ddev_fish_completion.sh" => "ddev.fish"
         else
             bin.install "ddev"
             bash_completion.install "ddev_bash_completion.sh" => "ddev"
-            zsh_completion.install "ddev_zsh_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "_ddev"
             fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
