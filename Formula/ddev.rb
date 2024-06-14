@@ -5,15 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/ddev/ddev"
-  version "1.23.1"
+  version "1.23.2"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
     on_intel do
-      url "https://github.com/ddev/ddev/releases/download/v1.23.1/ddev_macos-amd64.v1.23.1.tar.gz"
-      sha256 "3f083b2a7d65336c94eadee161af40a18c869e6feda8a26bb568205b07e9f80a"
+      url "https://github.com/ddev/ddev/releases/download/v1.23.2/ddev_macos-amd64.v1.23.2.tar.gz"
+      sha256 "6be9c2bc33cf630576c996e0ad64fdce4d12a99149a69dfbe5c760edf80b6547"
 
       def install
         if build.head?
@@ -34,8 +34,8 @@ class Ddev < Formula
       end
     end
     on_arm do
-      url "https://github.com/ddev/ddev/releases/download/v1.23.1/ddev_macos-arm64.v1.23.1.tar.gz"
-      sha256 "ad36315cf829508b47c189bc3d14b0a8e2fed00b731e397841b07cb00fd6ec2c"
+      url "https://github.com/ddev/ddev/releases/download/v1.23.2/ddev_macos-arm64.v1.23.2.tar.gz"
+      sha256 "bc2cb1c826a28b82121c997b1f585363eb0c88d8b203b4fd49d6b45c2847d588"
 
       def install
         if build.head?
@@ -60,8 +60,8 @@ class Ddev < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.23.1/ddev_linux-amd64.v1.23.1.tar.gz"
-        sha256 "b3e81adbc8c9b2bfc8d95156931d55efbc6d89f57f691c40624c084f0df972aa"
+        url "https://github.com/ddev/ddev/releases/download/v1.23.2/ddev_linux-amd64.v1.23.2.tar.gz"
+        sha256 "1f0bcb57ef232f4f5893e30aab3da15705f6741bc92d49659bcefe0905b979a1"
 
         def install
           if build.head?
@@ -84,8 +84,8 @@ class Ddev < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.23.1/ddev_linux-arm64.v1.23.1.tar.gz"
-        sha256 "1eb18c6265998ed413ecb32d3322165a48cc3b201666c60672d5ce92b6edc710"
+        url "https://github.com/ddev/ddev/releases/download/v1.23.2/ddev_linux-arm64.v1.23.2.tar.gz"
+        sha256 "97689a68cdfe486f9bb6449f62084f3ee08b6cbce94e4aeb21e949d3bad71f53"
 
         def install
           if build.head?
