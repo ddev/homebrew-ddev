@@ -5,18 +5,20 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/ddev/ddev"
-  version "1.23.5"
+  version "1.24.0"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
     on_intel do
-      url "https://github.com/ddev/ddev/releases/download/v1.23.5/ddev_macos-amd64.v1.23.5.tar.gz"
-      sha256 "fab0a3f38743e28cd22790bcfa72295d1cbacc7defe9f8288f99d5a150e8c3a4"
+      url "https://github.com/ddev/ddev/releases/download/v1.24.0/ddev_macos-amd64.v1.24.0.tar.gz"
+      sha256 "84dfbeb4fd4a5243b774b919d7b2d8b1bff114e6684450f0d31ad73d92d2a179"
 
       def install
         if build.head?
+            system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
+            system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
             os = OS.mac? ? "darwin" : "linux"
             arch = Hardware::CPU.arm? ? "arm64" : "amd64"
             system "mkdir", "-p", "#{bin}"
@@ -34,11 +36,13 @@ class Ddev < Formula
       end
     end
     on_arm do
-      url "https://github.com/ddev/ddev/releases/download/v1.23.5/ddev_macos-arm64.v1.23.5.tar.gz"
-      sha256 "97bfa30dd00fa18d6473952660fb85d5218cf002e9287bd456439a3c0fc701ad"
+      url "https://github.com/ddev/ddev/releases/download/v1.24.0/ddev_macos-arm64.v1.24.0.tar.gz"
+      sha256 "f9d9ff2dff19749d444524f758d93306f358a04ec98a67f48a12cfc4ae57d4d4"
 
       def install
         if build.head?
+            system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
+            system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
             os = OS.mac? ? "darwin" : "linux"
             arch = Hardware::CPU.arm? ? "arm64" : "amd64"
             system "mkdir", "-p", "#{bin}"
@@ -60,11 +64,13 @@ class Ddev < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.23.5/ddev_linux-amd64.v1.23.5.tar.gz"
-        sha256 "15319d073452e77d7342c8b9176fff63d890c3e06a65e31b6f1995f7ac4c26f5"
+        url "https://github.com/ddev/ddev/releases/download/v1.24.0/ddev_linux-amd64.v1.24.0.tar.gz"
+        sha256 "303c5f7f2cd8557ab8e89b4718828bad78d95f844dbf14a4b9e72ac50d63dfdd"
 
         def install
           if build.head?
+              system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
+              system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
               os = OS.mac? ? "darwin" : "linux"
               arch = Hardware::CPU.arm? ? "arm64" : "amd64"
               system "mkdir", "-p", "#{bin}"
@@ -84,11 +90,13 @@ class Ddev < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.23.5/ddev_linux-arm64.v1.23.5.tar.gz"
-        sha256 "0f9466a5da19f54e0829e132669c4bd15dae8b8f138e9fe006260e76ef10ea43"
+        url "https://github.com/ddev/ddev/releases/download/v1.24.0/ddev_linux-arm64.v1.24.0.tar.gz"
+        sha256 "4c7320b7b85f97546550e7daeee11a07ca58445ab6d5c4ea83f135e35454c6aa"
 
         def install
           if build.head?
+              system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
+              system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
               os = OS.mac? ? "darwin" : "linux"
               arch = Hardware::CPU.arm? ? "arm64" : "amd64"
               system "mkdir", "-p", "#{bin}"
@@ -108,9 +116,11 @@ class Ddev < Formula
     end
   end
 
-  head "https://github.com/ddev/ddev.git", branch: "master"
-  depends_on "go" => :build
-  depends_on "make" => :build
+  head do
+    url "https://github.com/ddev/ddev.git", branch: "master"
+    depends_on "go" => :build
+    depends_on "make" => :build
+  end
 
   test do
     system "#{bin}/ddev --version"
