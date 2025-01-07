@@ -117,7 +117,7 @@ class Ddev < Formula
   end
 
   head do
-    url "https://github.com/ddev/ddev.git", branch: "master"
+    url "https://github.com/ddev/ddev.git", branch: "main"
     depends_on "go" => :build
     depends_on "make" => :build
   end
