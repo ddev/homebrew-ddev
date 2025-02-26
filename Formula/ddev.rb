@@ -5,15 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/ddev/ddev"
-  version "1.24.2"
+  version "1.24.3"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ddev/ddev/releases/download/v1.24.2/ddev_macos-amd64.v1.24.2.tar.gz"
-      sha256 "de8bdeae8c020e4b70f5d0df7190f3e5c587235fa400b42299af99bd5299a311"
+      url "https://github.com/ddev/ddev/releases/download/v1.24.3/ddev_macos-amd64.v1.24.3.tar.gz"
+      sha256 "907b5ee5247dc4826afdf147663b678eb19299f0dbe283488378fac29dc809cc"
 
       def install
         if build.head?
@@ -36,8 +36,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ddev/ddev/releases/download/v1.24.2/ddev_macos-arm64.v1.24.2.tar.gz"
-      sha256 "8dbe39d61084fe8874fdaea7d1298dc79f70015dea74f1508c563c8e6b180505"
+      url "https://github.com/ddev/ddev/releases/download/v1.24.3/ddev_macos-arm64.v1.24.3.tar.gz"
+      sha256 "0a726779ed9891f73bd6ebe2f2999f5f253ba89b60d651463f5f7a515fdcf040"
 
       def install
         if build.head?
@@ -64,8 +64,8 @@ class Ddev < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.24.2/ddev_linux-amd64.v1.24.2.tar.gz"
-        sha256 "e32d8bb124ae455983a2170c646fea1eaae76be38671994b6ec312806b112f17"
+        url "https://github.com/ddev/ddev/releases/download/v1.24.3/ddev_linux-amd64.v1.24.3.tar.gz"
+        sha256 "95a0b686034c82437c1a8da6f7e370872cbf170fedf99fe31312697b0808814e"
 
         def install
           if build.head?
@@ -90,8 +90,8 @@ class Ddev < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.24.2/ddev_linux-arm64.v1.24.2.tar.gz"
-        sha256 "6f2294fa9f6a252b2de05c195ea1355305f1e1f93983a3695bc630c267858a76"
+        url "https://github.com/ddev/ddev/releases/download/v1.24.3/ddev_linux-arm64.v1.24.3.tar.gz"
+        sha256 "9c49bc7eaba0550b5615ae1356e00ac2b4c9fb497e50e5d440613939b9bd391f"
 
         def install
           if build.head?
