@@ -118,13 +118,13 @@ class Ddev < Formula
   # fail fast if tapped under the old drud or rfay names
   def initialize(*args, **kwargs)
     super(*args, **kwargs)
-    if ["drud/homebrew-ddev", "rfay/homebrew-ddev"].include?(tap.full_name)
+    if ["drud/homebrew-ddev", "rfay/homebrew-ddev"].include?(tap&.full_name)
       odie <<~EOS
         ERROR: your homebrew tap is the ancient #{tap.full_name},
         but that repository has moved.
         Please run:
+          rm -rf "$(brew --repo #{tap.full_name})"
           brew uninstall -f ddev
-          brew untap #{tap.full_name}
           brew install ddev/ddev/ddev
       EOS
     end
