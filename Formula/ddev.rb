@@ -5,15 +5,15 @@
 class Ddev < Formula
   desc "DDEV"
   homepage "https://github.com/ddev/ddev"
-  version "1.24.4"
+  version "1.24.5"
   license "Apache 2"
 
   depends_on "mkcert"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ddev/ddev/releases/download/v1.24.4/ddev_macos-amd64.v1.24.4.tar.gz"
-      sha256 "4f65da46eccf6812df7fa3559786ee01dbd69e86e3bed03aa883316828ac4615"
+      url "https://github.com/ddev/ddev/releases/download/v1.24.5/ddev_macos-amd64.v1.24.5.tar.gz"
+      sha256 "14bf22578c5491b2484b117e0354049c0bc8e65186742210d24341b8ac1c170a"
 
       def install
         if build.head?
@@ -36,8 +36,8 @@ class Ddev < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ddev/ddev/releases/download/v1.24.4/ddev_macos-arm64.v1.24.4.tar.gz"
-      sha256 "98607b8a8fe07a89057829003266e8d29f6ca0dcdfee688573f611c469c8cdc6"
+      url "https://github.com/ddev/ddev/releases/download/v1.24.5/ddev_macos-arm64.v1.24.5.tar.gz"
+      sha256 "173672e2fb5f6adea49ca7d3f5cb8f5d0967ba6b1fcd945a2f6f6e02e7b4537d"
 
       def install
         if build.head?
@@ -62,55 +62,49 @@ class Ddev < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.24.4/ddev_linux-amd64.v1.24.4.tar.gz"
-        sha256 "6057e23a398f6b9375786441b862c2eca4e46beb0190608bab0a6bfb46d8bb1f"
-
-        def install
-          if build.head?
-              system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
-              system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
-              os = OS.mac? ? "darwin" : "linux"
-              arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-              system "mkdir", "-p", "#{bin}"
-              system "make", "build", "completions"
-              system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
-              bash_completion.install ".gotmp/bin/completions/ddev_bash_completion.sh" => "ddev"
-              zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "_ddev"
-              fish_completion.install ".gotmp/bin/completions/ddev_fish_completion.sh" => "ddev.fish"
-          else
-              bin.install "ddev"
-              bash_completion.install "ddev_bash_completion.sh" => "ddev"
-              zsh_completion.install "ddev_zsh_completion.sh" => "_ddev"
-              fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
-          end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/ddev/ddev/releases/download/v1.24.5/ddev_linux-amd64.v1.24.5.tar.gz"
+      sha256 "e79c6626493dd88331a339fc50c6abaf0a86e2b23c0c4554a385327b564a3aee"
+      def install
+        if build.head?
+            system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
+            system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
+            os = OS.mac? ? "darwin" : "linux"
+            arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+            system "mkdir", "-p", "#{bin}"
+            system "make", "build", "completions"
+            system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
+            bash_completion.install ".gotmp/bin/completions/ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "_ddev"
+            fish_completion.install ".gotmp/bin/completions/ddev_fish_completion.sh" => "ddev.fish"
+        else
+            bin.install "ddev"
+            bash_completion.install "ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "_ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/ddev/ddev/releases/download/v1.24.4/ddev_linux-arm64.v1.24.4.tar.gz"
-        sha256 "2e6c5ce10cd933be1a20a5e13767a480aaa0bd7285b9b2ddc5515c91eb9dca92"
-
-        def install
-          if build.head?
-              system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
-              system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
-              os = OS.mac? ? "darwin" : "linux"
-              arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-              system "mkdir", "-p", "#{bin}"
-              system "make", "build", "completions"
-              system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
-              bash_completion.install ".gotmp/bin/completions/ddev_bash_completion.sh" => "ddev"
-              zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "_ddev"
-              fish_completion.install ".gotmp/bin/completions/ddev_fish_completion.sh" => "ddev.fish"
-          else
-              bin.install "ddev"
-              bash_completion.install "ddev_bash_completion.sh" => "ddev"
-              zsh_completion.install "ddev_zsh_completion.sh" => "_ddev"
-              fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
-          end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/ddev/ddev/releases/download/v1.24.5/ddev_linux-arm64.v1.24.5.tar.gz"
+      sha256 "c6f3cda074578c961931f4f234ec337748b5d4a033f40a173ce18e79a1d3a36d"
+      def install
+        if build.head?
+            system "sh", "-c", "git fetch --unshallow >/dev/null 2>&1" if File.exist?("#{HOMEBREW_REPOSITORY}/.git/shallow")
+            system "sh", "-c", "git fetch --tags -f >/dev/null 2>&1"
+            os = OS.mac? ? "darwin" : "linux"
+            arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+            system "mkdir", "-p", "#{bin}"
+            system "make", "build", "completions"
+            system "cp", ".gotmp/bin/" + os + "_" + arch + "/ddev", "#{bin}/ddev"
+            bash_completion.install ".gotmp/bin/completions/ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install ".gotmp/bin/completions/ddev_zsh_completion.sh" => "_ddev"
+            fish_completion.install ".gotmp/bin/completions/ddev_fish_completion.sh" => "ddev.fish"
+        else
+            bin.install "ddev"
+            bash_completion.install "ddev_bash_completion.sh" => "ddev"
+            zsh_completion.install "ddev_zsh_completion.sh" => "_ddev"
+            fish_completion.install "ddev_fish_completion.sh" => "ddev.fish"
         end
       end
     end
@@ -120,6 +114,20 @@ class Ddev < Formula
     url "https://github.com/ddev/ddev.git", branch: "main"
     depends_on "go" => :build
     depends_on "make" => :build
+  end
+  # fail fast if tapped under the old drud or rfay names
+  def initialize(*args, **kwargs)
+    super(*args, **kwargs)
+    if ["drud/homebrew-ddev", "rfay/homebrew-ddev"].include?(tap.full_name)
+      odie <<~EOS
+        ERROR: your homebrew tap is the ancient #{tap.full_name},
+        but that repository has moved.
+        Please run:
+          brew uninstall -f ddev
+          brew untap #{tap.full_name}
+          brew install ddev/ddev/ddev
+      EOS
+    end
   end
 
   test do
