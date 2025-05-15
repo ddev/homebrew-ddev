@@ -123,8 +123,8 @@ class Ddev < Formula
         ERROR: your homebrew tap is the ancient #{tap.full_name},
         but that repository has moved.
         Please run:
+          rm -rf "$(brew --repo #{tap.full_name})"
           brew uninstall -f ddev
-          brew untap #{tap.full_name}
           brew install ddev/ddev/ddev
       EOS
     end
